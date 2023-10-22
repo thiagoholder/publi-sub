@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using PubliSub.Banking.Application.Interfaces;
+using PubliSub.Banking.Application.Models;
 using PubliSub.Banking.Domain.Models;
 
 namespace PubliSub.Banking.Api.Controllers
@@ -18,6 +19,13 @@ namespace PubliSub.Banking.Api.Controllers
         public ActionResult<IEnumerable<Account>> Get() 
         {
             return Ok(_accountService.GetAccounts());
+        }
+
+        [HttpPost]
+        public IActionResult Post([FromBody] AccountTransfer accountTransfer) 
+        {
+            _accountService.Transfer(accountTransfer);
+            return Ok(accountTransfer);
         }
     }
 }
