@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PubliSub.Domain.Core", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PubliSub.Infra.Bus", "src\PubliSub.Infra.Bus\PubliSub.Infra.Bus.csproj", "{268013D1-A09D-4818-AEDE-39C4597BCBE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubliSub.Infra.IoC", "src\PubliSub.Infra.IoC\PubliSub.Infra.IoC.csproj", "{CCFA2E0D-4C54-4252-B7BF-21B5307E9ACE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PubliSub.Infra.IoC", "src\PubliSub.Infra.IoC\PubliSub.Infra.IoC.csproj", "{CCFA2E0D-4C54-4252-B7BF-21B5307E9ACE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Banking", "Banking", "{E27F5AE1-C956-4DA4-AB25-C814804AB80D}"
 EndProject
@@ -29,13 +29,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{45B704EF-5FE4-4510-899B-C5DB58D44DC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubliSub.Banking.Api", "src\PubliSub.Banking.Api\PubliSub.Banking.Api.csproj", "{D942C814-E330-4748-9802-E3D3D14CACB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PubliSub.Banking.Api", "src\PubliSub.Banking.Api\PubliSub.Banking.Api.csproj", "{D942C814-E330-4748-9802-E3D3D14CACB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubliSub.Banking.Application", "src\PubliSub.Banking.Application\PubliSub.Banking.Application.csproj", "{D523D5C3-986E-4880-BF5D-5A88932F2FB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PubliSub.Banking.Application", "src\PubliSub.Banking.Application\PubliSub.Banking.Application.csproj", "{D523D5C3-986E-4880-BF5D-5A88932F2FB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubliSub.Banking.Data", "src\PubliSub.Banking.Data\PubliSub.Banking.Data.csproj", "{0655A639-8A98-4E47-AFFF-7DE2AB68645B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PubliSub.Banking.Data", "src\PubliSub.Banking.Data\PubliSub.Banking.Data.csproj", "{0655A639-8A98-4E47-AFFF-7DE2AB68645B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubliSub.Banking.Domain", "src\PubliSub.Banking.Domain\PubliSub.Banking.Domain.csproj", "{1E40A51C-643E-46DB-8A19-79E78FC5FD3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PubliSub.Banking.Domain", "src\PubliSub.Banking.Domain\PubliSub.Banking.Domain.csproj", "{1E40A51C-643E-46DB-8A19-79E78FC5FD3B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{E00B26D8-8E10-4C07-836F-FD705CF760DB}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yaml = docker-compose.yaml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
