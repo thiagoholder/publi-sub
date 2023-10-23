@@ -7,9 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
     <Folder Include="Models\" />
-    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PubliSub.Domain.Core\PubliSub.Domain.Core.csproj" />
+    <ProjectReference Include="..\PubliSub.Transfer.Domain\PubliSub.Transfer.Domain.csproj" />
   </ItemGroup>
 
 </Project>
