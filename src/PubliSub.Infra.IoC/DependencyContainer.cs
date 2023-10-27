@@ -23,19 +23,31 @@ namespace PubliSub.Infra.IoC
     {
         public static void AddPubliSubDependencyGroup(this IServiceCollection services)
         {
-            services.AddTransient<IEventBus, RabbitMQBus>();
 
+            //Domain.Bus
+            services.AddSingleton<IEventBus, RabbitMQBus>(sp =>
+            {
+                var scopeFacatory = sp.GetRequiredService<IServiceScopeFactory>();
+                return new RabbitMQBus(sp.GetService<IMediator>(), scopeFacatory);
+            });
+
+            //Subscriptions
+            services.AddTransient<TransferEventHandler>();
+
+            //Application Services
             services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<ITransferService, TransferService>();
 
+            //Data
             services.AddTransient<IAccountRepository, AccoutRepository>();
             services.AddTransient<ITransferRepository, TransferRepository>();
-
             services.AddTransient<BankingDbContext>();
             services.AddTransient<TransferDbContext>();
 
+            //Domain Events
             services.AddTransient<IEventHandler<TransferCreatedEvent>, TransferEventHandler>();
 
+            //Domain Banking Comands
             services.AddTransient<IRequestHandler<CreateTransferCommand, bool>, TransferCommandHandler>();
 
             

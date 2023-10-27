@@ -15,8 +15,8 @@ namespace PubliSub.Transfer.Data.Context
                 //bankingDbContext.AddRange(products);
                 //bankingDbContext.SaveChanges();
 
-                var transfer1 = new TransferLog { Amount = 5.10M, FromAccount = 1, ToAccount = 2 };
-                var transfer2 = new TransferLog { Amount = 15.10M, FromAccount = 1, ToAccount = 2 };
+                var transfer1 = new TransferLog { TransferAmount = 5.10M, FromAccount = 1, ToAccount = 2 };
+                var transfer2 = new TransferLog { TransferAmount = 15.10M, FromAccount = 1, ToAccount = 2 };
                 var transfers = new List<TransferLog> { transfer1, transfer2 };
                 transferDbContext.AddRange(transfers);
                 transferDbContext.SaveChanges();

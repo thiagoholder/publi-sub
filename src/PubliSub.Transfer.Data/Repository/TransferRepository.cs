@@ -23,5 +23,12 @@ namespace PubliSub.Transfer.Data.Repository
         {
             return _dbContext.TransferLogs;
         }
+
+        public void Add(TransferLog transferLog)
+        {
+            _dbContext.TransferLogs.Add(transferLog);
+            _dbContext.SaveChanges();
+        }
+
     }
 }
