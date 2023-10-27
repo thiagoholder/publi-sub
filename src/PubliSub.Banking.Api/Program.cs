@@ -18,7 +18,7 @@ namespace PubliSub.Banking.Api
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddPubliSubDependencyGroup();
+            builder.Services.AddPubliSubDependencyGroup(builder.Configuration);
             builder.Services.AddDbContext<BankingDbContext>(options =>
             {
                 options.UseSqlServer(connectionString);
@@ -29,7 +29,7 @@ namespace PubliSub.Banking.Api
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
+            if (!app.Environment.IsProduction())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
@@ -42,7 +42,7 @@ namespace PubliSub.Banking.Api
                 }
             }
 
-            app.UseHttpsRedirection();
+            app.UseAuthorization();
 
             app.MapControllers();
 

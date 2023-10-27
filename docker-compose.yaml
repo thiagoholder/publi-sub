@@ -1,5 +1,34 @@
 version: '3.2'
 services:
+  bankingapi:
+    build:
+      context: ./src
+      dockerfile: /PubliSub.Banking.Api/Dockerfile
+    ports:
+      - "8000:9870"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+    depends_on:
+      - rabbitmq
+      - sqlserver
+      - transferapi
+    networks:
+      - messaging_net
+    restart: on-failure
+  transferapi:
+    build:
+      context: ./src
+      dockerfile: /PubliSub.Transfer.Api/Dockerfile
+    ports:
+      - "8001:9871"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+    depends_on:
+      - rabbitmq
+      - sqlserver
+    networks:
+      - messaging_net
+    restart: on-failure
   rabbitmq:
     image: rabbitmq:3.10.6-management-alpine
     container_name: 'rabbitmq'

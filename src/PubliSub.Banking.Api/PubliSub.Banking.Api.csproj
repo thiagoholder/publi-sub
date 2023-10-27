@@ -23,4 +23,12 @@
     <ProjectReference Include="..\PubliSub.Infra.IoC\PubliSub.Infra.IoC.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\thiag\source\repos\publi-sub\src\PubliSub.Banking.Api\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\thiag\source\repos\publi-sub\src\PubliSub.Banking.Api\.editorconfig" />
+  </ItemGroup>
+
 </Project>
