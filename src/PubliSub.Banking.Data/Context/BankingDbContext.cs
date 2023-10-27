@@ -9,6 +9,6 @@ namespace PubliSub.Banking.Data.Context
         { 
         }
 
-        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Account>? Accounts { get; set; }
     }
 }

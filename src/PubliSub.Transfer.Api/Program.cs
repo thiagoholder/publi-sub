@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using PubliSub.Domain.Core.Bus;
+using PubliSub.Infra.IoC;
 using PubliSub.Transfer.Data.Context;
+using PubliSub.Transfer.Domain.EventHandlers;
+using PubliSub.Transfer.Domain.Events;
 using System.Reflection;
 
 namespace PubliSub.Transfer.Api
@@ -18,6 +22,7 @@ namespace PubliSub.Transfer.Api
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddPubliSubDependencyGroup();
             builder.Services.AddDbContext<TransferDbContext>(options =>
             {
                 options.UseSqlServer(connectionString);
@@ -31,7 +36,17 @@ namespace PubliSub.Transfer.Api
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+
+                using (var scope = app.Services.CreateScope())
+                {
+                    var transferDbContext = scope.ServiceProvider.GetRequiredService<TransferDbContext>();
+                    transferDbContext.Database.EnsureCreated();
+                    transferDbContext.Seed();
+                   
+                }
             }
+
+            ConfigureEventBus(app);
 
             app.UseHttpsRedirection();
 
@@ -41,6 +56,12 @@ namespace PubliSub.Transfer.Api
             app.MapControllers();
 
             app.Run();
+        }
+
+        private static void ConfigureEventBus(WebApplication app)
+        {
+            var eventBus = app.Services.GetRequiredService<IEventBus>();
+            eventBus.Subscribe<TransferCreatedEvent, TransferEventHandler>();
         }
     }
 }

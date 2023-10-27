@@ -33,6 +33,13 @@ namespace PubliSub.Banking.Api
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+
+                using (var scope = app.Services.CreateScope())
+                {
+                    var bankingDbContext = scope.ServiceProvider.GetRequiredService<BankingDbContext>();
+                    bankingDbContext.Database.EnsureCreated();
+                   // bankingDbContext.Seed();
+                }
             }
 
             app.UseHttpsRedirection();

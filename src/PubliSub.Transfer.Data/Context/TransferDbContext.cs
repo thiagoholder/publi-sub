@@ -9,7 +9,7 @@ namespace PubliSub.Transfer.Data.Context
         { 
         }
 
-        public DbSet<TransferLog> TransferLogs { get; set; }
+        public DbSet<TransferLog>? TransferLogs { get; set; }
 
        
     }

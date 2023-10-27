@@ -5,12 +5,12 @@ using PubliSub.Transfer.Domain.Interfaces;
 
 namespace PubliSub.Transfer.Application.Services
 {
-    public class TrasnferService : ITransferService
+    public class TransferService : ITransferService
     {
         private readonly ITransferRepository _transferRepository;
         private readonly IEventBus _eventBus;
 
-        public TrasnferService(ITransferRepository transferRepository, IEventBus eventBus)
+        public TransferService(ITransferRepository transferRepository, IEventBus eventBus)
         {
             _transferRepository = transferRepository;
             _eventBus = eventBus;

@@ -20,6 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PubliSub.Infra.IoC\PubliSub.Infra.IoC.csproj" />
+    <ProjectReference Include="..\PubliSub.Transfer.Application\PubliSub.Transfer.Application.csproj" />
     <ProjectReference Include="..\PubliSub.Transfer.Data\PubliSub.Transfer.Data.csproj" />
   </ItemGroup>
 

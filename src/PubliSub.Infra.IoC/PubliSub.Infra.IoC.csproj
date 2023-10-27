@@ -16,6 +16,8 @@
     <ProjectReference Include="..\PubliSub.Banking.Domain\PubliSub.Banking.Domain.csproj" />
     <ProjectReference Include="..\PubliSub.Domain.Core\PubliSub.Domain.Core.csproj" />
     <ProjectReference Include="..\PubliSub.Infra.Bus\PubliSub.Infra.Bus.csproj" />
+    <ProjectReference Include="..\PubliSub.Transfer.Application\PubliSub.Transfer.Application.csproj" />
+    <ProjectReference Include="..\PubliSub.Transfer.Data\PubliSub.Transfer.Data.csproj" />
   </ItemGroup>
 
 </Project>
