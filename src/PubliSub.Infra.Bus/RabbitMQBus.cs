@@ -16,13 +16,15 @@ namespace PubliSub.Infra.Bus
         private readonly Dictionary<string, List<Type>> _handlers;
         private readonly List<Type> _eventTypes;
         private readonly IServiceScopeFactory _serviceScopeFactory;
+        private readonly ConnectionFactory _connectionFactory;
 
-        public RabbitMQBus(IMediator mediator, IServiceScopeFactory serviceScopeFactory)
+        public RabbitMQBus(IMediator mediator, IServiceScopeFactory serviceScopeFactory, ConnectionFactory connectionFactory)
         {
             _mediator = mediator;
             _serviceScopeFactory = serviceScopeFactory;
             _handlers = new Dictionary<string, List<Type>>();
             _eventTypes = new List<Type>();
+            _connectionFactory = connectionFactory;
         }
 
         public Task SendCommand<T>(T command) where T : Command
@@ -32,7 +34,8 @@ namespace PubliSub.Infra.Bus
 
         public void Publish<T>(T @event) where T : Event
         {
-            var factory = new ConnectionFactory() { HostName = "localhost", UserName = "admin", Password = "admin" };
+            //var factory = new ConnectionFactory() { HostName = "localhost", UserName = "admin", Password = "admin" };
+            var factory = _connectionFactory;
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
@@ -77,12 +80,15 @@ namespace PubliSub.Infra.Bus
 
         private void StartBasicConsume<T>() where T : Event
         {
-            var factory = new ConnectionFactory() {
-                HostName = "localhost", 
-                UserName = "admin", 
-                Password = "admin",
-                DispatchConsumersAsync = true,
-            };
+            //var factory = new ConnectionFactory() {
+            //    HostName = "localhost", 
+            //    UserName = "admin", 
+            //    Password = "admin",
+            //    DispatchConsumersAsync = true,
+            //};
+
+            var factory = _connectionFactory;
+            factory.DispatchConsumersAsync = true;
 
             var connection = factory.CreateConnection();
             var channel = connection.CreateModel();

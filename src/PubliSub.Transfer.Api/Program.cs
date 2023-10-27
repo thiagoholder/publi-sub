@@ -22,7 +22,7 @@ namespace PubliSub.Transfer.Api
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddPubliSubDependencyGroup();
+            builder.Services.AddPubliSubDependencyGroup(builder.Configuration);
             builder.Services.AddDbContext<TransferDbContext>(options =>
             {
                 options.UseSqlServer(connectionString);
@@ -32,26 +32,24 @@ namespace PubliSub.Transfer.Api
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
+            if (!app.Environment.IsProduction())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+
+                Console.WriteLine(app.Environment.EnvironmentName);
 
                 using (var scope = app.Services.CreateScope())
                 {
                     var transferDbContext = scope.ServiceProvider.GetRequiredService<TransferDbContext>();
                     transferDbContext.Database.EnsureCreated();
                     transferDbContext.Seed();
-                   
                 }
             }
 
             ConfigureEventBus(app);
 
-            app.UseHttpsRedirection();
-
             app.UseAuthorization();
-
 
             app.MapControllers();
 

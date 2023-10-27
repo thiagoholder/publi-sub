@@ -18,7 +18,7 @@ namespace PubliSub.Infra.Bus.Tests
         {
             // Arrange
             var mediator = new Mock<IMediator>();
-            var bus = new RabbitMQBus(mediator.Object, null);
+            var bus = new RabbitMQBus(mediator.Object, null, null);
             var command = new CreateTransferCommand(1,2,3);
 
 
