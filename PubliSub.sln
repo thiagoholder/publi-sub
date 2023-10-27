@@ -52,13 +52,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{E2E9A245-B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{0015A74F-01A0-4BE8-AFFC-954D75300618}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubliSub.Transfer.Api", "src\PubliSub.Transfer.Api\PubliSub.Transfer.Api.csproj", "{4209F990-934E-491D-B7F6-FB0F28298347}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PubliSub.Transfer.Api", "src\PubliSub.Transfer.Api\PubliSub.Transfer.Api.csproj", "{4209F990-934E-491D-B7F6-FB0F28298347}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubliSub.Transfer.Application", "src\PubliSub.Transfer.Application\PubliSub.Transfer.Application.csproj", "{2385726F-781B-465E-8867-B333BC317CDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PubliSub.Transfer.Application", "src\PubliSub.Transfer.Application\PubliSub.Transfer.Application.csproj", "{2385726F-781B-465E-8867-B333BC317CDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubliSub.Transfer.Data", "src\PubliSub.Transfer.Data\PubliSub.Transfer.Data.csproj", "{98111890-C2EA-4342-8A96-539CEB5DEB49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PubliSub.Transfer.Data", "src\PubliSub.Transfer.Data\PubliSub.Transfer.Data.csproj", "{98111890-C2EA-4342-8A96-539CEB5DEB49}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PubliSub.Transfer.Domain", "src\PubliSub.Transfer.Domain\PubliSub.Transfer.Domain.csproj", "{BD0F5547-C4F7-41B6-99D7-7B493B9F0C8B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B91C9BA6-ED17-44E9-8D01-B82E7FBA2BD9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PubliSub.Banking.Tests", "tests\PubliSub.Banking.Domain.Tests\PubliSub.Banking.Tests.csproj", "{9D8EB100-34F6-4F9A-AEF1-5A207B75CBC3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{55B46C27-0206-4418-8410-DB29594CD2D2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PubliSub.Transfer.Tests", "tests\PubliSub.Transfer.Tests\PubliSub.Transfer.Tests.csproj", "{69AE8185-5C82-48C7-BD87-101014C459C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -110,6 +118,14 @@ Global
 		{BD0F5547-C4F7-41B6-99D7-7B493B9F0C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD0F5547-C4F7-41B6-99D7-7B493B9F0C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD0F5547-C4F7-41B6-99D7-7B493B9F0C8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D8EB100-34F6-4F9A-AEF1-5A207B75CBC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D8EB100-34F6-4F9A-AEF1-5A207B75CBC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D8EB100-34F6-4F9A-AEF1-5A207B75CBC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D8EB100-34F6-4F9A-AEF1-5A207B75CBC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69AE8185-5C82-48C7-BD87-101014C459C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69AE8185-5C82-48C7-BD87-101014C459C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69AE8185-5C82-48C7-BD87-101014C459C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69AE8185-5C82-48C7-BD87-101014C459C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -136,6 +152,10 @@ Global
 		{2385726F-781B-465E-8867-B333BC317CDD} = {7DF9ED83-3697-41C2-BA18-6A03D474392D}
 		{98111890-C2EA-4342-8A96-539CEB5DEB49} = {E2E9A245-BFDF-4DBE-9297-E66D7CA569B5}
 		{BD0F5547-C4F7-41B6-99D7-7B493B9F0C8B} = {0015A74F-01A0-4BE8-AFFC-954D75300618}
+		{B91C9BA6-ED17-44E9-8D01-B82E7FBA2BD9} = {E27F5AE1-C956-4DA4-AB25-C814804AB80D}
+		{9D8EB100-34F6-4F9A-AEF1-5A207B75CBC3} = {B91C9BA6-ED17-44E9-8D01-B82E7FBA2BD9}
+		{55B46C27-0206-4418-8410-DB29594CD2D2} = {7A234AE2-9EFA-486E-B334-449D4D3CEF2A}
+		{69AE8185-5C82-48C7-BD87-101014C459C5} = {55B46C27-0206-4418-8410-DB29594CD2D2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {14851ED7-95B9-4DE4-8246-FC4F28782920}
